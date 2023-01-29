@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
 @RestController
+@CrossOrigin
 @RequestMapping("api/v1/reviews")
 public class ReviewController {
     @Autowired
     private ReviewService reviewService;
-    @CrossOrigin
     @PostMapping
     public ResponseEntity<Review> addNewReview(@RequestBody Map<String,String> payload){
         return new ResponseEntity<Review>(reviewService.createReview(payload.get("reviewBody"),payload.get("imdbId")), HttpStatus.CREATED);

@@ -10,16 +10,15 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin
 @RequestMapping("api/v1/movies")
 public class MovieController {
     @Autowired
     private MovieService movieService;
-    @CrossOrigin
     @GetMapping
     public ResponseEntity<List<Movie>> getAllMovies(){
         return new ResponseEntity<List<Movie>>(movieService.allMovies(),HttpStatus.OK);
     }
-    @CrossOrigin
     @GetMapping("/{imdbId}")
     public ResponseEntity<Optional<Movie>> getMovieByImdbId(@PathVariable String imdbId){
         return new ResponseEntity<Optional<Movie>>(movieService.movieByImdbId(imdbId),HttpStatus.OK);

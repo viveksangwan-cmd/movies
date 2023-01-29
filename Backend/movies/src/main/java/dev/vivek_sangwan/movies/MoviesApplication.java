@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @RestController
+@CrossOrigin
 public class MoviesApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MoviesApplication.class, args);
 	}
-	@CrossOrigin
 	@GetMapping("healthcheck")
 	public String check(){
 		return "Backend is running fine";
